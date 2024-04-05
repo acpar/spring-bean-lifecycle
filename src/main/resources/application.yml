@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-bean-lifecycle
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: '5'
+      connection-timeout: '60000'
+    url: jdbc:postgresql://localhost:5438/lifecycle
+    password: ${DATABASE_PASSWORD:lifecycle}
+    username: ${DATABASE_USER:lifecycle}
+logging:
+  level:
+    root: info
